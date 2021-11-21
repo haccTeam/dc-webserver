@@ -5,8 +5,12 @@ const haccTeamApp = express();
 const port = 7777;
 
 // stuff to send the file
-haccTeamApp.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, '/stuff/test.txt'));
+haccTeamApp.get("/", function(req, res){
+    res.send("ok")
+})
+haccTeamApp.use('/stuff/:file', function(req, res, next){
+    // res.sendFile(path.join(__dirname, '/stuff/test.txt'));
+    res.download("./stuff/" + req.params.file);
 })
 
 haccTeamApp.listen(port);
