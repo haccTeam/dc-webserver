@@ -4,11 +4,15 @@ const path = require('path');
 const haccTeamApp = express();
 const port = 7777;
 
+
+// serve static files
+haccTeamApp.use(express.static(__dirname + '/niceifyWebpage'));
 // stuff to send the file
 
 // placeholder stuff
-haccTeamApp.get("/", function(req, res){
-     res.sendFile(path.join(__dirname, '/niceifyWebpage/index.html'));
+haccTeamApp.get("/", function(req, res, next){
+    res.sendFile(path.join(__dirname + '/niceifyWebpage/index.html'));
+     
 })
 // END placeholder 
 
