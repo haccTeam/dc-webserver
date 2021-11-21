@@ -4,7 +4,8 @@ const path = require('path');
 
 const haccTeamApp = express();
 const port = 7777;
-
+const IP = "0.0.0.0";
+const fs = require('fs')
 
 // serve static files
 haccTeamApp.use(express.static(__dirname + '/niceifyWebpage'));
@@ -44,5 +45,30 @@ haccTeamApp.use('/stuff', function(req, res, next) {
     
 })
 
-haccTeamApp.listen(port);
+
+// download a file with only a part of the name in the url given
+// idk how usefull this is, but for now it works :)
+haccTeamApp.use('/download', function(req, res, next){
+    const filename = "test"
+    var files = [];
+    fs.readdir(`./stuff`, function(err,list){
+        if(err) throw err;
+        for(var i=0; i<list.length; i++)
+        {
+            /*user your conditions AND/OR */
+            if(list[i].indexOf(filename) != -1)
+            {
+                console.log(list[i]); // print the file
+                files.push(list[i]); // store the file name into the array [files]
+                res.download("./stuff/" + list[i]) // downloads the file from webserver
+
+            }
+        }
+    });
+})
+
+
+
+
+haccTeamApp.listen(port, IP);
 console.log('Server is up and running on http://localhost:' + port)
