@@ -4,16 +4,22 @@
   "description": "Testrun of scripts, that will upload large files to a webserver. This feature will be later implemented into a discord bot",
   "main": "webserver.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon webserver.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/haccTeam/dc-webserver.git"
   },
-  "author": "iSkipper, MLG Doge, Gabriel55ita",
+  "author": "iSkipper, MLG Doge and Gabriel55ita",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/haccTeam/dc-webserver/issues"
   },
-  "homepage": "https://github.com/haccTeam/dc-webserver#readme"
+  "homepage": "https://github.com/haccTeam/dc-webserver#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7"
+  }
 }
