@@ -1,5 +1,4 @@
 const express = require('express');
-const M = require('minimatch');
 const path = require('path');
 
 const haccTeamApp = express();
@@ -55,7 +54,7 @@ haccTeamApp.use('/download', function(req, res, next){
         if(err) throw err;
         for(var i=0; i<list.length; i++)
         {
-            /*user your conditions AND/OR */
+            
             if(list[i].indexOf(filename) != -1)
             {
                 console.log(list[i]); // print the file
