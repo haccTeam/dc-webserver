@@ -4,7 +4,8 @@ const path = require('path');
 const haccTeamApp = express();
 const port = 7777;
 const IP = "0.0.0.0";
-const fs = require('fs')
+const fs = require('fs');
+
 
 // serve static files
 haccTeamApp.use(express.static(__dirname + '/niceifyWebpage'));
@@ -12,8 +13,12 @@ haccTeamApp.use(express.static(__dirname + '/niceifyWebpage'));
 
 // placeholder stuff
 haccTeamApp.get("/", function(req, res, next){
-    res.sendFile(path.join(__dirname + '/niceifyWebpage/index.html'));
-     
+    res.sendFile(path.join(__dirname + '/niceifyWebpage/index.html'))
+    window.setTimeout(function(){
+        window.location.href = "https://www.google.co.in";
+    }, 5000);
+
+
 })
 // END placeholder 
 
