@@ -53,9 +53,13 @@ hacc::before
 
 /* haccy class for paragraph */
 .txthacc {
-  color: rgb(255, 255, 255);
-  position: relative;
-  top: 200px;
-  left: 570px;
-  font-size: 1.5vw;
+    color: rgb(255, 255, 255);
+    font-size: 1.5vw;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+
+  
 }
