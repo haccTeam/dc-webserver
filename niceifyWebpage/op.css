@@ -8,11 +8,13 @@
 }
 body
 {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background: #252839;
+  left: -110px;
 }
 hacc
 {
@@ -47,4 +49,13 @@ hacc::before
   {
     width:100%;
   }
+}
+
+/* haccy class for paragraph */
+.txthacc {
+  color: rgb(255, 255, 255);
+  position: relative;
+  top: 200px;
+  left: 570px;
+  font-size: 1.5vw;
 }
