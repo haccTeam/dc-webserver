@@ -5,6 +5,8 @@ const haccTeamApp = express();
 const port = 7777;
 const IP = "0.0.0.0";
 const fs = require('fs');
+const { ENOENT } = require('constants');
+const { resolveSoa } = require('dns');
 
 
 // serve static files
@@ -77,26 +79,29 @@ haccTeamApp.use('/download/:filename', function(req, res, next){
 
 // download files with the 16-digit foldercode and the filename. 
 haccTeamApp.use('/upload/:foldercode/:filename', function(req, res, next){    
-   
+
     const foldercode = req.params.foldercode;
     const filename = req.params.filename;
     console.log("Foldercode: " + foldercode);
     console.log("Filecode: " + filename);
 
-    const gettingUpload = "Getting file " + "'"+filename+"'" + " from folder " + "#"+foldercode
-    res.writeHead(200, {
-        'Content-Length': Buffer.byteLength(gettingUpload),
-        'Content-Type': 'text'
-    });
-    res.end(gettingUpload)
-
     
-    try {
-        res.download(`./upload/${foldercode}/${filename}`)
-    } catch(err) {
+    
+        try{
+            res.download(`./upload/${foldercode}/${filename}`)
+            fs.readFile(`./upload/${foldercode}/${filename}`, function(err){
+                if (err) res.send("Haccful, ha? Sorry, but the requested file/ folder does not have an corresponding path.")
+            })
+
+        }catch(error){
+
+            console.log("Catched error: " + error);
         
-        console.warn(err)
-    }
+
+        }
+           
+        
+    
 })
 
 
