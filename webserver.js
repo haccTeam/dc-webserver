@@ -13,7 +13,7 @@ const { resolveSoa } = require('dns');
 haccTeamApp.use(express.static(__dirname + '/niceifyWebpage'));
 haccTeamApp.use(express.json());
 haccTeamApp.use(express.urlencoded({ extended: true }));
-// stuff to send the file
+
 
 // placeholder stuff
 haccTeamApp.get("/", function(req, res, next){
