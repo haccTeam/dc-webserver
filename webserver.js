@@ -9,6 +9,8 @@ const fs = require('fs');
 
 // serve static files
 haccTeamApp.use(express.static(__dirname + '/niceifyWebpage'));
+haccTeamApp.use(express.json());
+haccTeamApp.use(express.urlencoded({ extended: true }));
 // stuff to send the file
 
 // placeholder stuff
@@ -72,6 +74,30 @@ haccTeamApp.use('/download/:filename', function(req, res, next){
 })
 
 
+
+// download files with the 16-digit foldercode and the filename. 
+haccTeamApp.use('/upload/:foldercode/:filename', function(req, res, next){    
+   
+    const foldercode = req.params.foldercode;
+    const filename = req.params.filename;
+    console.log("Foldercode: " + foldercode);
+    console.log("Filecode: " + filename);
+
+    const gettingUpload = "Getting file " + "'"+filename+"'" + " from folder " + "#"+foldercode
+    res.writeHead(200, {
+        'Content-Length': Buffer.byteLength(gettingUpload),
+        'Content-Type': 'text'
+    });
+    res.end(gettingUpload)
+
+    
+    try {
+        res.download(`./upload/${foldercode}/${filename}`)
+    } catch(err) {
+        
+        console.warn(err)
+    }
+})
 
 
 
