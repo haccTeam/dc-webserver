@@ -27,9 +27,6 @@ haccTeamApp.get("/", function(req, res, next){
 // END placeholder 
 
 
-	res.status(404).send('404 Page for now. Atleast so long, until I figure out how to make a decent one in html :]');
-
-
 
 
 // download part
