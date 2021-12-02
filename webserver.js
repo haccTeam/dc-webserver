@@ -13,7 +13,7 @@ const { resolveSoa } = require('dns');
 haccTeamApp.use(express.static(__dirname + '/niceifyWebpage'));
 haccTeamApp.use(express.json());
 haccTeamApp.use(express.urlencoded({ extended: true }));
-// stuff to send the file
+
 
 // placeholder stuff
 haccTeamApp.get("/", function(req, res, next){
@@ -26,7 +26,11 @@ haccTeamApp.get("/", function(req, res, next){
 })
 // END placeholder 
 
-// get the key (url) for the file, which was requested
+
+// 404 Page 
+haccTeamApp.use(function (req,res,next){
+	res.status(404).send('404 Page for now. Atleast so long, until I figure out how to make a decent one in html :]');
+});
 
 
 
