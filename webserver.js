@@ -27,10 +27,7 @@ haccTeamApp.get("/", function(req, res, next){
 // END placeholder 
 
 
-// 404 Page 
-haccTeamApp.use(function (req,res,next){
 	res.status(404).send('404 Page for now. Atleast so long, until I figure out how to make a decent one in html :]');
-});
 
 
 
@@ -92,10 +89,10 @@ haccTeamApp.use('/upload/:foldercode/:filename', function(req, res, next){
     
     
         try{
-            res.download(`./upload/${foldercode}/${filename}`)
             fs.readFile(`./upload/${foldercode}/${filename}`, function(err){
                 if (err) res.send("Haccful, ha? Sorry, but the requested file/ folder does not have an corresponding path.")
             })
+            res.download(`./upload/${foldercode}/${filename}`)
 
         }catch(error){
 
@@ -108,6 +105,11 @@ haccTeamApp.use('/upload/:foldercode/:filename', function(req, res, next){
     
 })
 
+// 404 Page -- Please leave this at the end.
+haccTeamApp.use(function(req, res, next) {
+    res.status(404);
+    res.send('404: This is the 404 page for now. Atleast so long, until I figure out how to make a decent one in html :]');
+});
 
 
 haccTeamApp.listen(port, IP);
