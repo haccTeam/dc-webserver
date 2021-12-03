@@ -102,7 +102,7 @@ haccTeamApp.use('/upload/:foldercode/:filename', function(req, res, next){
     
 })
 
-// 404 Page -- Please leave this at the end.
+// 404 Page -- Please leave this at the end, cause it needs to be a "last route".
 haccTeamApp.use(function(req, res, next) {
     res.status(404);
     res.send('404: This is the 404 page for now. Atleast so long, until I figure out how to make a decent one in html :]');
