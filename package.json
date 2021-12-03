@@ -4,6 +4,7 @@
   "description": "Testrun of scripts, that will upload large files to a webserver. This feature will be later implemented into a discord bot",
   "main": "webserver.js",
   "scripts": {
+    "hacc": "node webserver.js \"Starting: HaccTeamApp waking up...\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon webserver.js"
   },
@@ -14,13 +15,13 @@
   "author": "iSkipper, MLG Doge and Gabriel55ita",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/haccTeam/dc-webserver/issues"
+    "url": "https://github.com/haccTeam/dc-webserver/issues",
+    "discord": "iSkipper#1805, Gabriel55ita#6304"
   },
   "homepage": "https://github.com/haccTeam/dc-webserver#readme",
   "dependencies": {
     "express": "^4.17.1",
     "nodemon": "^2.0.15",
-    "path": "^0.12.7",
-    "sleep": "^6.3.0"
+    "path": "^0.12.7"
   }
 }
