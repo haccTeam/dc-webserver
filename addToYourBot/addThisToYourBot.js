@@ -6,7 +6,7 @@ const fs = require("fs");
 // moving the file -> Saves space on storage device
 try{ 
     
-    // please note, that you have to change the ${foldercode} to something that fits with your code.
+    // please note, that you have to change the ${foldercode} to something that fits with your code. 
     
     fs.renameSync("./stuff/test.txt", `./upload/${foldercode}test.txt`) // as there is nothing like moveFile in JS, we can use the rename function to move the file. 
 
