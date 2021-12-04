@@ -1,4 +1,4 @@
-// part to copy the requested file to the upload folder
+// fs is a build in file-management system  
 const fs = require("fs");
 
 
