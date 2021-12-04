@@ -13,7 +13,7 @@
     "url": "git+https://github.com/haccTeam/dc-webserver.git"
   },
   "author": "iSkipper, MLG Doge and Gabriel55ita",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/haccTeam/dc-webserver/issues",
     "discord": "iSkipper#1805, Gabriel55ita#6304"
